@@ -1,5 +1,5 @@
 //This is the basics of the Kotlin Language
-//This is all about the datTypes and var and I/O statements
+//Don't TRY TO RUN THIS PROGRAM
 
 fun main() {
     //2 types of Statements println,print,
@@ -64,11 +64,57 @@ fun main() {
     for(item in 'a'..'z')//it will iterate from a to z
         print(item)
 
+    //function in kotlin keyword fun
+    var number= readln().toInt()
+    isAPrime(a)//calling the function
 
+    //function Extension
 
+    var num=12
+    num.isPrime(num)//adding user defined method to already existing class here adding isPrime function to the Inbuilt class Int
 
+    val m= intArrayOf(100,200,1000)
+    exampleForVararg(1,2,3,4,*m,55,67,8)//it takes multiple parameter just like array and also you can also enter the same type of array here
+}
+
+      //parameter declaration variable name : dataType
+      //for return type declaration :  fun fun_Name(parameter) : return data type
+fun isAPrime(a:Int):Boolean{
+    if(a<2){
+        return false
+    }
+    for(i in 2..<a)
+    {
+        if(a%i==0){
+            return false
+        }
+    }
+    return true
+}
+//function Extension means adding method  another class method without any inheritance
+fun Int.isPrime(a: Int):Boolean{
+    if(a<2){
+        return false
+    }
+    for(i in 2..a-1){
+        if (a%i==0){
+            return false
+        }
+    }
+    return true
+
+}
+//vararg type of a parameter this works like a collection
+//you can also pass an array using the * operator
+fun exampleForVararg(vararg a:Int){
+    var max=0
+    for(i in a){
+        if(i>max){
+            max=i
+        }
+    }
+    println("Maximum : $max")
 }
 
 
 
-}
